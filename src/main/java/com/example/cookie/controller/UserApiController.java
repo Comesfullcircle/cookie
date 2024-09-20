@@ -22,20 +22,20 @@ public class UserApiController {
     @GetMapping("/me")
     public UserDto me(
             HttpServletRequest httpServletRequest,
-            @CookieValue(required = false)
+            @CookieValue(name = "authorization-cookie", required = false)
             String authorizationCookie
     ){
         log.info("authorizationCookie : {}", authorizationCookie);
+        var optionalUserDto = userRepository.findById(authorizationCookie);
+        return optionalUserDto.get();
 
-        /*
-        var cookies = httpServletRequest.getCookies();
+    /*    var cookies = httpServletRequest.getCookies();
 
         if(cookies != null){
             for(Cookie cookie: cookies){
                 log.info("key : {}, value : {}", cookie.getName(), cookie.getValue());
             }
-        }*/
-
-        return null;
+        }
+*/
     }
 }
