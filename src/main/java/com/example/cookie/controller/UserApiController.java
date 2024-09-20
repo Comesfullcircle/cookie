@@ -25,13 +25,16 @@ public class UserApiController {
             @CookieValue(required = false)
             String authorizationCookie
     ){
+        log.info("authorizationCookie : {}", authorizationCookie);
+
+        /*
         var cookies = httpServletRequest.getCookies();
 
         if(cookies != null){
             for(Cookie cookie: cookies){
                 log.info("key : {}, value : {}", cookie.getName(), cookie.getValue());
             }
-        }
+        }*/
 
         return null;
     }
