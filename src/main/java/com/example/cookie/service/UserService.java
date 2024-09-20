@@ -32,6 +32,7 @@ public class UserService {
                 cookie.setDomain("localhost"); //naver.com, daum.net, dev.xxx.com, << production.xxx.com
                 cookie.setPath("/");
                 cookie.setHttpOnly(true); //자바스크립트에서 해당 값을 읽을 수 없도록 보안 처리
+                cookie.setSecure(true); // << https 에서만 사용되도록 설정
                 cookie.setMaxAge(-1); //session
 
                 httpServletResponse.addCookie(cookie);
